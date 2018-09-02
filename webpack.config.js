@@ -1,10 +1,14 @@
+const webpack = require("webpack");
+require("dotenv").config(); //load all environment varialbes from .env
 const path = require("path");
+
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 const htmlWebpackPlugin = new HTMLWebpackPlugin({
   template: "./src/index.html",
   filename: "./index.html"
 });
+
 module.exports = {
   entry: ["babel-polyfill", "./src/index.js"],
   output: {
@@ -32,10 +36,19 @@ module.exports = {
         }
       },
       {
+        test: /\.(jpg|png|gif|jpeg)$/,
+        loader: "file-loader"
+      },
+      {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
       }
     ]
   },
-  plugins: [htmlWebpackPlugin]
+  plugins: [
+    htmlWebpackPlugin,
+    new webpack.DefinePlugin({
+      RECIPE_API: JSON.stringify(process.env.RECIPE_API)
+    })
+  ]
 };
