@@ -1,49 +1,58 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const RecipeDetail = ({ style }) => {
+const RecipeDetail = ({ style, recipe }) => {
+  {
+    if (!recipe) {
+      return (
+        <div style={style}>
+          <p>Please select a receipe from the list to see details!.</p>
+        </div>
+      );
+    }
+  }
   return (
-    <div style={style}>
-      <h2>Chicken Divan Casserole</h2>
-      <img src="https://images.media-allrecipes.com/userphotos/560x315/4588683.jpg" />
-      <div>
-        <span>Chicken</span>
-        <span>500 cal</span>
+    <div className="col-sm-8  border-left border-dark">
+      <h3 className="h3 text-center mt-2 mb-4">{recipe.name}</h3>
+      <div className="row">
+        <div className="col-sm-12">
+          <img
+            className="img-responsive rounded mx-auto d-block "
+            src={recipe.image}
+            width="100%"
+          />
+        </div>
       </div>
-      <h3>Ingredients</h3>
-      <ul>
-        <li>2 skinless, boneless chicken breast halves</li>
-        <li> 4 cups broccoli florets, or to taste</li>
-        <li>3 tablespoons butter</li>
-        <li>salt and freshly ground black pepper to taste</li>
-        <li>2 tablespoons soy sauce</li>
-        <li>
-          2 teaspoons Asian chile pepper sauce (such as sambal oelek), or more
-          to taste
-        </li>
-      </ul>
-      <h3>Directtions</h3>
-      <ol>
-        <li>
-          Mash garlic to a paste with a mortar and pestle. Mix chile pepper
-          sauce, maple syrup, soy sauce, mayonnaise, and rice vinegar into
-          garlic until marinade is thoroughly combined.
-        </li>
-        <li>Preheat charcoal grill to high heat.</li>
-        <li>
-          Place chicken thighs onto the hot grill with smooth sides down. Cook
-          until chicken shows grill marks, about 3 minutes. Turn chicken over
-          and cook until other side shows grill marks, about 5 minutes. Continue
-          to cook, moving them occasionally and turning over every 2 minutes,
-          until meat is no longer pink inside and the thighs are golden brown,
-          10 to 12 minutes.
-        </li>
-        <li>
-          Transfer chicken to a platter, let rest for 5 minutes, and serve
-          garnished with lime wedges.
-        </li>
-      </ol>
+      <div>
+        <span>{recipe.category}</span>
+        <span>{recipe.calories} cal</span>
+      </div>
+      <div className="card my-4">
+        <h3 className="card-header">Ingredients</h3>
+        <div className="card-body">
+          <ul>
+            {recipe.ingredients.map((ing, i) => {
+              return <li key={i}>{ing}</li>;
+            })}
+          </ul>
+        </div>
+      </div>
+      <div className="card my-4">
+        <h3 className="card-header ">Directons</h3>
+        <div className="card-body">
+          <ol>
+            {recipe.steps.map((step, i) => {
+              return <li key={i}>{step}</li>;
+            })}
+          </ol>
+        </div>
+      </div>
     </div>
   );
+};
+RecipeDetail.propTypes = {
+  style: PropTypes.object,
+  recipe: PropTypes.object
 };
 
 export default RecipeDetail;

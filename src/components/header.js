@@ -1,10 +1,17 @@
 import React from "react";
-
-const Header = () => {
+import logo from "../images/receipe-icon.png";
+const Header = props => {
   return (
-    <div>
-      <h1>Welcome to Recipe Finder</h1>
-    </div>
+    <header className="container-fluid py-4 bg-secondary">
+      <div className="d-inline">
+        <img
+          className="img-thumbnail rounded-circle logo"
+          src={logo}
+          alt="Find your recipe!"
+        />
+      </div>
+      <div className="d-inline mx-2 name">Find Favourite Recipe</div>
+    </header>
   );
 };
 

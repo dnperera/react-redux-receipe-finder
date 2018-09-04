@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <title>React Redux Receipe Finder</title>
+</head>
+<style>
+  html {
+    font-size: 12px;
+  }
+
+  @media (min-width: 800px) {
+    html {
+      font-size: 14px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    html {
+      font-size: 16px;
+    }
+  }
+
+  .logo {
+    width: 8rem;
+    padding: 1rem;
+  }
+
+  .name {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff
+  }
+
+
+
+
+
+  .card li {
+    line-height: 3rem;
+    font-size: 1.2rem;
+
+  }
+</style>
+
+<body>
+  <header class="container-fluid  py-2 bg-secondary">
+    <div class="d-inline">
+      <img class="img-thumbnail rounded-circle logo" src="images/receipe-icon.png" alt="">
+    </div>
+    <div class="d-inline mx-2  name">Find Favourite Recipe</div>
+  </header>
+  <div class="container  bg-light px-4">
+    <div class="row">
+      <div class="col-sm-4">
+        <h3 class="h3 text-center mt-2 mb-4">List of Recipes</h3>
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-action"><a href="#" class="text-dark">Artichoke Hummus</a></li>
+          <li class="list-group-item list-group-item-action"><a href="#" class="text-dark">Baked White Bean Dip with Rosemary
+              and Parmesan.</a>
+          </li>
+          <li class="list-group-item list-group-item-action"><a href="#" class="text-dark">Blood Orange and Green Olive Salad.</a>
+          </li>
+          <li class="list-group-item list-group-item-action"><a href="#" class="text-dark">Chilled Ginger Cantaloupe Soup.</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-8  border-left border-dark">
+        <h3 class="h3 text-center mt-2 mb-4">Baked White Bean Dip with Rosemary and Parmesan</h3>
+        <div class="row">
+          <div class="col-sm-12">
+            <img class="img-responsive rounded mx-auto d-block " src='images/french-laundry.jpg' width="100%">
+          </div>
+        </div>
+        <div class="card my-4">
+          <h3 class="card-header">Ingredients</h3>
+
+          <div class="card-body">
+            <ul>
+              <li>1 (14 ounce) can artichoke hearts, drained and coarsely chopped </li>
+            </ul>
+          </div>
+        </div>
+        <div class="card my-4">
+          <h3 class="card-header ">Directons</h3>
+          <div class="card-body">
+            <ol>
+              <li>1 (14 ounce) can artichoke hearts, drained and coarsely chopped </li>
+
+              <li>4 ounces cream cheese, room temperature 1/2 cup sour cream</li>
+
+              <li>1/4 cup mayonnaise </li>
+
+              <li>1 clove garlic, grated 1/2 teaspoon chili sauce (optional) </li>
+
+              <li> 1/4 cup grated parmigiano reggiano</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <footer class="container-fluid py-2 bg-secondary">
+    <p class="text-center text-white p-4"> React Redux Recipe Finder Coyright 2018 </p>
+  </footer>
+</body>
+
+</html>
