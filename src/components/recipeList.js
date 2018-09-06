@@ -13,9 +13,18 @@ const RecipeList = props => {
               onClick={e => {
                 props.onRecipeClick(recipe.id);
               }}
+              role="button"
             >
+              <input
+                className="mr-2 p-2 bg-info"
+                type="checkbox"
+                onClick={e => {
+                  e.stopPropagation();
+                  props.addRemoveFavorites(recipe.id);
+                }}
+              />
               <span>{recipe.name}</span>
-              <span>{recipe.category}</span>
+              <span className="text-info ml-2 ">- {recipe.category}</span>
             </li>
           );
         })}

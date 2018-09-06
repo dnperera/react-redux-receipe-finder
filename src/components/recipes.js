@@ -8,7 +8,8 @@ class Recipes extends Component {
     super(props);
     this.state = {
       recipes: [],
-      currentRecipe: null
+      currentRecipe: null,
+      favourites: []
     };
   }
   //load available recipes from the api
@@ -30,15 +31,45 @@ class Recipes extends Component {
       this.setState({ currentRecipe: res.data });
     });
   };
+
+  addRemoveFavorites = id => {
+    this.setState(({ favourites, ...state }) => {
+      //first check selected id already in the favorites array and then update the state
+      let index = favourites.indexOf(id);
+      if (index > -1) {
+        return {
+          ...state,
+          favourites: favourites.filter(recipeId => recipeId != id)
+        };
+      } else {
+        return {
+          ...state,
+          favourites: [...favourites, id]
+        };
+      }
+    });
+    //first check selected id already in the favorites array and then update the state
+    // const currentFavourites = [...this.state.favourites];
+    // if (currentFavourites.indexOf(id) > -1) {
+    //   this.setState({
+    //     favourites: currentFavourites.filter(recipeId => recipeId !== id)
+    //   });
+    // } else {
+    //   this.setState({
+    //     favourites: [...currentFavourites, id]
+    //   });
+    // }
+  };
   render() {
     const { recipes, currentRecipe } = this.state;
+    console.log("favorites -->", this.state.favourites);
     return (
       <div className="container  bg-light px-4">
         <div className="row">
           <RecipeList
-            style={{ flex: 3 }}
             recipes={recipes}
             onRecipeClick={this.onRecipeClick}
+            addRemoveFavorites={this.addRemoveFavorites}
           />
           <RecipeDetail style={{ flex: 5 }} recipe={currentRecipe} />
         </div>

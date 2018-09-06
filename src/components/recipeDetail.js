@@ -24,8 +24,12 @@ const RecipeDetail = ({ style, recipe }) => {
         </div>
       </div>
       <div className="my-4">
-        <span className=" font-italic  text-primary h5">{recipe.category}</span>
-        <span className="px-4 h5 text-success">{recipe.calories} cal</span>
+        <span className=" mr-4 font-italic  text-primary h5">
+          {recipe.category}
+        </span>
+        <span className="p-3 badge badge-pill badge-success">
+          {recipe.calories} cal
+        </span>
       </div>
       <div className="card my-4">
         <h3 className="card-header">Ingredients</h3>
