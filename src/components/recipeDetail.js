@@ -2,15 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const RecipeDetail = ({ style, recipe }) => {
-  {
-    if (!recipe) {
-      return (
-        <div style={style}>
-          <p>Please select a receipe from the list to see details!.</p>
-        </div>
-      );
-    }
+  if (!recipe) {
+    return (
+      <div style={style}>
+        <p>Please select a receipe from the list to see details!.</p>
+      </div>
+    );
   }
+
   return (
     <div className="col-sm-8  border-left border-dark">
       <h3 className="h3 text-center mt-2 mb-4">{recipe.name}</h3>
@@ -20,6 +19,7 @@ const RecipeDetail = ({ style, recipe }) => {
             className="img-responsive rounded mx-auto d-block "
             src={recipe.image}
             width="100%"
+            alt={recipe.name}
           />
         </div>
       </div>
@@ -28,16 +28,17 @@ const RecipeDetail = ({ style, recipe }) => {
           {recipe.category}
         </span>
         <span className="p-3 badge badge-pill badge-success">
-          {recipe.calories} cal
+          {recipe.calories}
+          cal
         </span>
       </div>
       <div className="card my-4">
         <h3 className="card-header">Ingredients</h3>
         <div className="card-body">
           <ul>
-            {recipe.ingredients.map((ing, i) => {
-              return <li key={i}>{ing}</li>;
-            })}
+            {recipe.ingredients.map(ing => (
+              <li key={ing}>{ing}</li>
+            ))}
           </ul>
         </div>
       </div>
@@ -45,9 +46,9 @@ const RecipeDetail = ({ style, recipe }) => {
         <h3 className="card-header ">Directons</h3>
         <div className="card-body">
           <ol>
-            {recipe.steps.map((step, i) => {
-              return <li key={i}>{step}</li>;
-            })}
+            {recipe.steps.map(step => (
+              <li key={step}>{step}</li>
+            ))}
           </ol>
         </div>
       </div>

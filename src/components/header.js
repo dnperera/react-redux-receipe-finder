@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../images/receipe-icon.png";
-import PropTypes from "prop-types";
 
 const Header = () => {
   const HeaderLink = ({ children, ...props }) => (
@@ -37,7 +36,4 @@ const Header = () => {
   );
 };
 
-Header.propTypes = {
-  children: PropTypes.node
-};
 export default Header;
