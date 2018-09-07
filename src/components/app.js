@@ -66,21 +66,23 @@ class App extends Component {
               <Route
                 exact
                 path="/"
-                render={props => (
+                render={() => (
                   <Recipes
-                    {...props}
-                    recipes={this.state.recipes}
+                    state={this.state}
                     onRecipeClick={this.onRecipeClick}
                     addRemoveFavorites={this.addRemoveFavorites}
-                    currentRecipe={this.state.currentRecipe}
                   />
                 )}
               />
               <Route
                 exact
                 path="/favourites"
-                render={props => (
-                  <Favourites {...props} favourites={this.state.favourites} />
+                render={() => (
+                  <Favourites
+                    state={this.state}
+                    onRecipeClick={this.onRecipeClick}
+                    addRemoveFavorites={this.addRemoveFavorites}
+                  />
                 )}
               />
               <Route component={NotFound} />
