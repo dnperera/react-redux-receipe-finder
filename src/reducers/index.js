@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import testReducer from "./test";
+import favouritesReducer from "./favouritesReducer";
 
 export default combineReducers({
-  test: testReducer
+  favourites: favouritesReducer
 });

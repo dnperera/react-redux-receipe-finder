@@ -1,11 +1,13 @@
 import React from "react";
+import { connect } from "react-dedux";
 import PropTypes from "prop-types";
 import RecipeList from "./recipeList";
 
-const Favourites = ({ state, onRecipeClick, addRemoveFavorites }) => {
+const Favourites = ({ state, favourites, addRemoveFavorites }) => {
+  console.log(favourites);
   /**Filter the favorite recipes */
   const recipes = state.recipes.filter(
-    recp => state.favourites.indexOf(recp.id) > -1
+    recp => props.favourites.indexOf(recp.id) > -1
   );
 
   return (
@@ -23,4 +25,9 @@ Favourites.propTypes = {
   onRecipeClick: PropTypes.func,
   addRemoveFavorites: PropTypes.func
 };
-export default Favourites;
+const mapStateToProps = state => {
+  return {
+    favourites: state.favourites
+  };
+};
+export default connect(mapStateToProps)(Favourites);

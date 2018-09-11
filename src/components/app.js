@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import axios from "axios";
+
 import Header from "./header";
 import Recipes from "./recipes";
 import Favourites from "./favourites";
@@ -12,8 +13,7 @@ class App extends Component {
     super(props);
     this.state = {
       recipes: [],
-      currentRecipe: null,
-      favourites: []
+      currentRecipe: null
     };
   }
 
@@ -38,21 +38,21 @@ class App extends Component {
   };
 
   addRemoveFavorites = id => {
-    this.setState(({ favourites, ...state }) => {
-      /*
-      first check selected id already in the favorites array and then update the state */
-      const index = favourites.indexOf(id);
-      if (index !== -1) {
-        return {
-          ...state,
-          favourites: favourites.filter(recipeId => recipeId !== id)
-        };
-      }
-      return {
-        ...state,
-        favourites: [...favourites, id]
-      };
-    });
+    // this.setState(({ favourites, ...state }) => {
+    //   /*
+    //   first check selected id already in the favorites array and then update the state */
+    //   const index = favourites.indexOf(id);
+    //   if (index !== -1) {
+    //     return {
+    //       ...state,
+    //       favourites: favourites.filter(recipeId => recipeId !== id)
+    //     };
+    //   }
+    //   return {
+    //     ...state,
+    //     favourites: [...favourites, id]
+    //   };
+    // });
   };
 
   render() {
