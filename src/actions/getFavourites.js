@@ -1,8 +1,8 @@
-import { GET_FAVOURITES } from "./types";
+import { UPDATE_FAVOURITES } from "./types";
 
-export const getFavourites = favts => {
-  return {
-    type: GET_FAVOURITES,
+export const updateFavourites = favts => dispatch => {
+  return dispatch({
+    type: UPDATE_FAVOURITES,
     payload: favts
-  };
+  });
 };

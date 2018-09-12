@@ -1,1 +1,3 @@
-export const GET_FAVOURITES = "GET_FAVOURITES";
+export const UPDATE_FAVOURITES = "UPDATE_FAVOURITES";
+export const GET_RECIPES = "GET_RECIPES";
+export const GET_RECIPE = "GET_RECIPE";
