@@ -1,7 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const RecipeListItem = ({ recipe, addRemoveFavorites, onRecipeClick }) => (
+const RecipeListItem = ({
+  recipe,
+  addRemoveFavorites,
+  onRecipeClick,
+  isSelected
+}) => (
   <li
     className="list-group-item list-group-item-action"
     onClick={() => {
@@ -16,6 +21,7 @@ const RecipeListItem = ({ recipe, addRemoveFavorites, onRecipeClick }) => (
         e.stopPropagation();
         addRemoveFavorites(recipe.id);
       }}
+      defaultChecked={isSelected}
     />
     <span>{recipe.name}</span>
     <span className="text-info ml-2 "> {recipe.category}</span>

@@ -30,6 +30,7 @@ const RecipeList = ({
           recipe={recipe}
           onRecipeClick={onRecipeClick ? onRecipeClick : () => null}
           addRemoveFavorites={addRemoveFavorites}
+          isSelected={favourites.indexOf(recipe.id) > -1}
         />
       ))}
     </ul>

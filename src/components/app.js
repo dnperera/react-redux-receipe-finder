@@ -45,17 +45,7 @@ class App extends Component {
             <Switch>
               <Redirect from="/home" to="/" />
               <Route exact path="/" component={Recipes} />
-              {/* <Route
-                exact
-                path="/favourites"
-                render={() => (
-                  <Favourites
-                    state={this.state}
-                    onRecipeClick={this.onRecipeClick}
-                    addRemoveFavorites={this.addRemoveFavorites}
-                  />
-                )}
-              /> */}
+              <Route exact path="/favourites" component={Favourites} />
               <Route component={NotFound} />
             </Switch>
           </main>
